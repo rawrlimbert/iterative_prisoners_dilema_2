@@ -126,11 +126,18 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     #This example player always betrays.      
     elif player == 1:
-        if getting_team_name:
-            return 'backstabber'
+        if getting_team_name:Lamar&Rory
+            return 'loyal vengeful'
         else:
-            return 'b'
-
+            if len(opponent_history)==0: #It's the first round: collude
+                return 'b'
+            elif history[-1]=='b' and opponent_history[-1]=='b':
+                return 'b' # betray if they were severely punished last time
+            else: #use history, opponet_history, score, opponet_score, 
+                  #to compute strategy   
+                return 'c' #otherwise collude
+            elif history[-1]=='c' and opponet_history[-1]=='c'
+               return 'c'   
 
 
 
